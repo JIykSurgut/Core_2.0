@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using MobileStore.Models;   // пространство имен моделей
 using Microsoft.EntityFrameworkCore; // пространство имен EntityFramework
 using Microsoft.Extensions.Configuration;
+using WebApplication.Models;
 
 namespace WebApplication
 {
@@ -30,7 +30,7 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(connection));
 
             services.AddMvc();
         }

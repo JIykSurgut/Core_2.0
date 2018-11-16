@@ -1,36 +1,28 @@
-﻿//using System.Linq;
-//using MobileStore.Models;
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-//namespace MobileStore
-//{
-//    public static class SampleData
-//    {
-//        public static void Initialize(MobileContext context)
-//        {
-//            if (!context.Phones.Any())
-//            {
-//                context.Phones.AddRange(
-//                    new Phone
-//                    {
-//                        Name = "iPhone 6S",
-//                        Company = "Apple",
-//                        Price = 600
-//                    },
-//                    new Phone
-//                    {
-//                        Name = "Samsung Galaxy Edge",
-//                        Company = "Samsung",
-//                        Price = 550
-//                    },
-//                    new Phone
-//                    {
-//                        Name = "Lumia 950",
-//                        Company = "Microsoft",
-//                        Price = 500
-//                    }
-//                );
-//                context.SaveChanges();
-//            }
-//        }
-//    }
-//}
+namespace WebApplication.Models
+{
+    public static class SampleData
+    {
+        public static void Initialize(DataBaseContext context)
+        {
+            if (!context.Article.Any())
+            {
+                context.Article.AddRange(
+                    new Article
+                    {
+                        Title = "Статья 1",
+                        Content = "Содержание статьи 1",
+                        DateInsert = DateTime.Now,
+                        DateUpdate = DateTime.Now
+                    }
+                );
+                context.SaveChanges();
+            }
+        }
+    }
+}

@@ -1,16 +1,32 @@
-﻿
+﻿@model IEnumerable<WebApplication.Models.Article>
 @{
+    //ViewData["Title"] = "Список смартфонов";
     Layout = null;
 }
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Hello ASP.NET MVC Core</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
+    <title>Список статей</title>
 </head>
 <body>
-    <h2>Привет мир!</h2>
+    <h3>Статьи</h3>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Содержание</td>
+            <td>Дата создания</td>
+            <td></td>
+        </tr>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@article.Title</td>
+                <td>@article.Content</td>
+                <td>@article.DateInsert</td>
+                @*<td><a href="~/Home/Buy/@phone.Id">Купить</a></td>*@
+            </tr>
+        }
+    </table>
 </body>
 </html>
-
